@@ -1,4 +1,4 @@
-package model;
+package com.sysoevvladislav.GroceryList.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;

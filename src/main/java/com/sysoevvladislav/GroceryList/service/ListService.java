@@ -1,7 +1,7 @@
-package service;
+package com.sysoevvladislav.GroceryList.service;
 
 
-import model.List;
+import com.sysoevvladislav.GroceryList.model.List;
 
 public interface ListService {
 

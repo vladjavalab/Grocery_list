@@ -1,11 +1,11 @@
-package controller;
+package com.sysoevvladislav.GroceryList.controller;
 
-import model.Product;
+import com.sysoevvladislav.GroceryList.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.ProductService;
+import com.sysoevvladislav.GroceryList.service.ProductService;
 
 import java.util.List;
 

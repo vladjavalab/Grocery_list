@@ -1,7 +1,7 @@
-package service;
+package com.sysoevvladislav.GroceryList.service;
 
 
-import model.Product;
+import com.sysoevvladislav.GroceryList.model.Product;
 import java.util.List;
 
 public interface ProductService {

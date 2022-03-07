@@ -1,6 +1,6 @@
-package repository;
+package com.sysoevvladislav.GroceryList.repository;
 
-import model.Product;
+import com.sysoevvladislav.GroceryList.model.Product;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

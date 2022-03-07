@@ -1,8 +1,8 @@
-package service;
+package com.sysoevvladislav.GroceryList.service;
 
-import model.Product;
+import com.sysoevvladislav.GroceryList.model.Product;
 import org.springframework.stereotype.Service;
-import repository.ProductsRepository;
+import com.sysoevvladislav.GroceryList.repository.ProductsRepository;
 
 import java.util.ArrayList;
 import java.util.List;

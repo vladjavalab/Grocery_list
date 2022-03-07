@@ -1,11 +1,11 @@
-package service;
+package com.sysoevvladislav.GroceryList.service;
 
-import model.Product;
-import model.List;
+import com.sysoevvladislav.GroceryList.model.Product;
+import com.sysoevvladislav.GroceryList.model.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import repository.ListRepository;
-import repository.ProductsRepository;
+import com.sysoevvladislav.GroceryList.repository.ListRepository;
+import com.sysoevvladislav.GroceryList.repository.ProductsRepository;
 
 import java.util.ArrayList;
 
