@@ -1,11 +1,12 @@
 package com.sysoevvladislav.GroceryList.repository;
 
-import com.sysoevvladislav.GroceryList.model.List;
+import com.sysoevvladislav.GroceryList.model.ProductList;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ListRepository extends CrudRepository<List, Long> {
-    List getById(Long id);
+public interface ListRepository extends CrudRepository<ProductList, Long> {
+    ProductList getById(Long id);
+
     void deleteById(Long id);
 }

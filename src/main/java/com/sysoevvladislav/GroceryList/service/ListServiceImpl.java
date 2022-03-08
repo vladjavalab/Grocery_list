@@ -1,13 +1,14 @@
 package com.sysoevvladislav.GroceryList.service;
 
 import com.sysoevvladislav.GroceryList.model.Product;
-import com.sysoevvladislav.GroceryList.model.List;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import com.sysoevvladislav.GroceryList.model.ProductList;
 import com.sysoevvladislav.GroceryList.repository.ListRepository;
 import com.sysoevvladislav.GroceryList.repository.ProductsRepository;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ListServiceImpl implements ListService {
@@ -24,23 +25,23 @@ public class ListServiceImpl implements ListService {
     }
 
     @Override
-    public void create(List list) {
-        listRepository.save(list);
+    public void create(ProductList productList) {
+        listRepository.save(productList);
     }
 
     @Override
-    public java.util.List<List> readAll() {
-        java.util.List<List> result = new ArrayList<>();
+    public List<ProductList> readAll() {
+       List<ProductList> result = new ArrayList<>();
 
-        for(List list : listRepository.findAll()){
-            result.add(list);
+        for (ProductList productList : listRepository.findAll()) {
+            result.add(productList);
         }
 
         return result;
     }
 
     @Override
-    public List read(long id) {
+    public ProductList read(long id) {
         return listRepository.getById(id);
     }
 
@@ -51,15 +52,15 @@ public class ListServiceImpl implements ListService {
 
     @Override
     public boolean addToList(Long productId, Long listId) {
-        List list = listRepository.getById(listId);
+        ProductList productList = listRepository.getById(listId);
 
-        if(list.getSize() == maxProductsInList) return false;
+        if(productList.getSize() == maxProductsInList) return false;
 
         Product product = productsRepository.getById(productId);
 
-        list.addProduct(product);
+        productList.addProduct(product);
 
-        listRepository.save(list);
+        listRepository.save(productList);
 
         return true;
     }

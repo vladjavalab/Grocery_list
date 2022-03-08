@@ -1,14 +1,14 @@
 package com.sysoevvladislav.GroceryList.service;
 
 import com.sysoevvladislav.GroceryList.model.Product;
-import org.springframework.stereotype.Service;
 import com.sysoevvladislav.GroceryList.repository.ProductsRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     private final ProductsRepository repository;
 
@@ -19,14 +19,14 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public void create(Product product) {
-    repository.save(product);
+        repository.save(product);
     }
 
     @Override
     public List<Product> readAll() {
         List<Product> result = new ArrayList<>();
 
-        for(Product product : repository.findAll()){
+        for (Product product : repository.findAll()) {
             result.add(product);
         }
 

@@ -1,11 +1,12 @@
 package com.sysoevvladislav.GroceryList.controller;
 
+import com.sysoevvladislav.GroceryList.model.ProductList;
+import com.sysoevvladislav.GroceryList.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import com.sysoevvladislav.GroceryList.service.ListService;
 
 import java.util.List;
 
@@ -21,29 +22,29 @@ public class ListController {
 
 
     @PostMapping(value = "/list")
-    public ResponseEntity<Void> create(@RequestBody com.sysoevvladislav.GroceryList.model.List list) {
-        listService.create(list);
+    public ResponseEntity<Void> create(@RequestBody ProductList productList) {
+        listService.create(productList);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/list")
     public ResponseEntity<?> read() {
-        final List<com.sysoevvladislav.GroceryList.model.List> list = listService.readAll();
+        final List<ProductList> productList = listService.readAll();
 
-        return makeResponse(list, HttpStatus.NOT_FOUND);
+        return makeResponse(productList, HttpStatus.NOT_FOUND);
     }
 
     @GetMapping(value = "/list/{id}")
     public ResponseEntity<?> read(@PathVariable(name = "id") long id) {
-        final com.sysoevvladislav.GroceryList.model.List list = listService.read(id);
+        final ProductList productList = listService.read(id);
 
-        return makeResponse(list, HttpStatus.NOT_FOUND);
+        return makeResponse(productList, HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping(value = "/list/{id}")
     public ResponseEntity<?> delete(@PathVariable(name = "id") int id) {
         listService.delete(id);
-        return  makeResponse(true, HttpStatus.NOT_MODIFIED);
+        return makeResponse(true, HttpStatus.NOT_MODIFIED);
     }
 
     @PostMapping(value = "/list")
@@ -53,13 +54,13 @@ public class ListController {
     }
 
 
-    private ResponseEntity<?> makeResponse(Object data, HttpStatus statusOnFail){
+    private ResponseEntity<?> makeResponse(Object data, HttpStatus statusOnFail) {
         return data != null
-                ? new ResponseEntity<>(data,HttpStatus.OK)
+                ? new ResponseEntity<>(data, HttpStatus.OK)
                 : new ResponseEntity<>(statusOnFail);
     }
 
-    private ResponseEntity<?> makeResponse(List<com.sysoevvladislav.GroceryList.model.List> collection, HttpStatus statusOnFail){
+    private ResponseEntity<?> makeResponse(List<ProductList> collection, HttpStatus statusOnFail) {
         return collection != null && !collection.isEmpty()
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(statusOnFail);
